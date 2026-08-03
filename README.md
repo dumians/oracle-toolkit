@@ -4,8 +4,8 @@ Toolkit for managing Oracle databases on Google Cloud.
 
 Supports usage with:
 
-- [Bare Metal Solution](https://cloud.google.com/bare-metal)
 - [Google Compute Engine](https://cloud.google.com/products/compute)
+- [Bare Metal Solution](https://cloud.google.com/bare-metal)
 
 ## Quick Start
 
