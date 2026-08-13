@@ -74,7 +74,7 @@ AGY and Gemini CLI employ **progressive disclosure**. Skills and agents are disc
 ### Workspace vs. Global Installation
 
 #### Option A: Workspace Integration (Recommended for CI/CD & Project Repos)
-The plugin is already embedded inside [`plugins/oracle-database-gcp/`](file:///Users/jdumitru/Projects/oracle-toolkit/plugins/oracle-database-gcp). Whenever you open the workspace in AGY or Gemini CLI, all skills and rules load automatically.
+The plugin is already embedded inside `plugins/oracle-database-gcp/`. Whenever you open the workspace in AGY or Gemini CLI, all skills and rules load automatically.
 
 #### Option B: Global Machine-Local Installation
 To use these skills across any project directory on your workstation:
@@ -83,7 +83,7 @@ To use these skills across any project directory on your workstation:
 mkdir -p ~/.gemini/config/plugins/
 
 # 2. Copy the plugin to the global configuration
-cp -R /Users/jdumitru/Projects/oracle-toolkit/plugins/oracle-database-gcp ~/.gemini/config/plugins/
+cp -R plugins/oracle-database-gcp ~/.gemini/config/plugins/
 
 # 3. Verify installation
 ls -la ~/.gemini/config/plugins/oracle-database-gcp

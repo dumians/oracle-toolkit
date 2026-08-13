@@ -77,14 +77,14 @@ Before submitting the migration job, execute the pre-checks on the ZDM host (VM 
   ```
 * **For Infrastructure Manager Deployments Diagnostics:**
   ```bash
-  ./scripts/verify_state.sh
+  ./scripts/migration/verify_state.sh
   ```
 
 ---
 
 ## 📈 ZDM Response File Tuning Best Practices
 
-When ZDM executes migrations, configure templates [zdm_physical.rsp.tpl](file:///Users/jdumitru/Projects/Oracle_Migration_ZDM/modules/zdm_node/templates/zdm_physical.rsp.tpl) and [zdm_logical.rsp.tpl](file:///Users/jdumitru/Projects/Oracle_Migration_ZDM/modules/zdm_node/templates/zdm_logical.rsp.tpl) according to these principles:
+When ZDM executes migrations, configure templates [`zdm_physical.rsp.tpl`](../../../terraform/modules/zdm_node/templates/zdm_physical.rsp.tpl) and [`zdm_logical.rsp.tpl`](../../../terraform/modules/zdm_node/templates/zdm_logical.rsp.tpl) according to these principles:
 
 ### 1. Data Pump Tuning (Logical Migration)
 * **Parallelism (`DATAPUMP_PARALLELISM`):** Set to `target_vCPUs * 2`. For example, on a `n2-standard-8` (8 vCPUs) target, set parallelism to `16`.
