@@ -30,6 +30,7 @@ Supports usage with:
 
 ## Architecture & Documentation
 
+- [AI Agent Plugin & Gemini Marketplace Setup FAQ](docs/agent_skills_marketplace_faq.md)
 - [Exadata Cloud Service & Exascale Architecture](docs/exacs_exascale_architecture.md)
 - [Autonomous Database Serverless (ADB-S) Architecture](docs/adb_s_architecture.md)
 - [Zero Downtime Migration (ZDM) Playbook](docs/zdm_migration_playbook.md)
