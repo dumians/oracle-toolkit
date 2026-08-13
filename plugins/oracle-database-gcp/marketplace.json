@@ -14,7 +14,7 @@
     "oracle-cloud-lifecycle-ops"
   ],
   "supported_platforms": [
-    "Oracle Database@Google Cloud (ExaCS X9M/X11M)",
+    "Oracle Database@Google Cloud (ExaCS X11M)",
     "Oracle Database@Google Cloud (ExaDB-D with Exascale)",
     "Autonomous Database Serverless (ADB-S)",
     "Base Database Service (DBCS)",

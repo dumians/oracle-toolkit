@@ -13,7 +13,7 @@ Supports usage with:
   - High-performance multi-node Oracle Real Application Clusters (RAC) and physical Data Guard.
   - Native Cloud Storage (GCS) integration for high-speed backup, staging, and media libraries.
 - **[Oracle Database@Google Cloud (ODB@GCP)](https://cloud.google.com/oracle-database-at-google-cloud)** (Co-located DBaaS):
-  - **Exadata Database Service on Dedicated Infrastructure (ExaCS)**: Dedicated compute servers (min 2) and intelligent storage servers (min 3) running on `Exadata.X9M` and `Exadata.X11M` hardware co-located inside Google Cloud data centers.
+  - **Exadata Database Service on Dedicated Infrastructure (ExaCS)**: Dedicated compute servers (min 2) and intelligent storage servers (min 3) running on `Exadata.X11M` hardware co-located inside Google Cloud data centers.
   - **Exadata Database Service with Exascale (ExaDB-D Exascale)**: Next-generation Exadata architecture featuring virtualized intelligent storage pools, decoupled granular online ECPU and storage auto-scaling, low-capacity starter footprints, and instantaneous thin clones.
   - **Autonomous Database Serverless (ADB-S)**: Fully managed, self-driving Oracle database with automated patching, indexing, and tuning, auto-scaling ECPUs, support for `OLTP` (ATP) and `DW` (ADW) workloads, and secure private endpoints over **TCPS port 1522** (mTLS).
   - **Base Database Service (DBCS / DB System)**: Virtual Machine DB System with ECPU compute model, customizable block storage, and unified auditing.

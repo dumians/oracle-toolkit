@@ -71,7 +71,7 @@ variable "cloud_exadata_infrastructure_id" {
 
 variable "exadata_shape" {
   type        = string
-  description = "Shape: Exadata.X11M or Exadata.X9M"
+  description = "Shape: Exadata.X11M"
   default     = "Exadata.X11M"
 }
 

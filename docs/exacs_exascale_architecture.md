@@ -17,7 +17,7 @@ This toolkit provides native Terraform modules for deploying:
 | **Scaling Granularity** | Step increments of 1 compute server / 1 storage server. | Fully decoupled, granular online scaling of ECPUs and storage capacity (GB/TB). |
 | **Entry Footprint** | Fixed quarter-rack minimum hardware requirement. | Low-capacity starter shapes with sub-rack entry costs. |
 | **Thin Provisioning & Clones** | ASM-level full allocations. | Native Redirect-on-Write (RoW) instantaneous database clones and thin provisioning. |
-| **Shapes** | `Exadata.X9M`, `Exadata.X11M` | `Exadata.X11M` with Exascale storage architecture. |
+| **Shapes** | `Exadata.X11M` | `Exadata.X11M` with Exascale storage architecture. |
 
 ---
 

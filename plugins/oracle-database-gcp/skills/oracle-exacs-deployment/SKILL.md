@@ -2,7 +2,7 @@
 name: oracle-exacs-deployment
 description: >-
   Architect, size, and deploy Oracle Exadata Database Service on Dedicated Infrastructure (ExaCS) on Oracle Database@Google Cloud.
-  Use when the user asks to provision or configure Exadata Infrastructure (X9M / X11M), Exadata VM Clusters, ODB Networks,
+  Use when the user asks to provision or configure Exadata Infrastructure (X11M), Exadata VM Clusters, ODB Networks,
   peered delegated Client/Backup subnets, ASM disk groups, or RAC clusters on co-located Oracle cloud hardware inside GCP.
 ---
 
@@ -17,7 +17,7 @@ This skill provides end-to-end guidance for provisioning and configuring **Oracl
 ExaCS co-locates Oracle Exadata hardware directly inside Google Cloud data centers:
 * **Exadata Infrastructure (`google_oracle_database_cloud_exadata_infrastructure`)**:
   * Physical compute servers (minimum 2) and high-performance intelligent storage servers (minimum 3).
-  * Supported Hardware Shapes: `Exadata.X11M`, `Exadata.X9M`.
+  * Supported Hardware Shapes: `Exadata.X11M`.
 * **Exadata VM Cluster (`google_oracle_database_cloud_vm_cluster`)**:
   * Multi-node RAC virtual cluster running on top of the dedicated Exadata infrastructure.
   * Grid Infrastructure (GI) versions: `19.0.0.0` or `23.0.0.0`.

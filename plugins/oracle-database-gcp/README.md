@@ -10,7 +10,7 @@ This plugin equips Gemini with autonomous agentic skills to architect, deploy, a
 
 | Skill | Description | Supported Targets |
 | :--- | :--- | :--- |
-| **`oracle-exacs-deployment`** | Provisions Exadata Infrastructure (X9M/X11M), Exadata VM Clusters, ODB Networks, and subnets. | ExaCS on ODB@GCP |
+| **`oracle-exacs-deployment`** | Provisions Exadata Infrastructure (X11M), Exadata VM Clusters, ODB Networks, and subnets. | ExaCS on ODB@GCP |
 | **`oracle-exascale-deployment`** | Architect Exadata with Exascale intelligent storage pools, sub-rack shapes, and online autoscaling. | ExaDB-D with Exascale |
 | **`oracle-adbs-deployment`** | Provisions Autonomous Database Serverless (ATP/ADW) with ECPU autoscaling and mTLS TCPS 1522. | ADB-S |
 | **`oracle-dbcs-deployment`** | Provisions Base Database Service (DBCS) VM instances with ECPU compute models. | DBCS / DB System |

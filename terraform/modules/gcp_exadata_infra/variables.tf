@@ -20,7 +20,7 @@ variable "gcp_oracle_zone" {
 
 variable "shape" {
   type        = string
-  description = "The shape for the Exadata infrastructure (e.g. Exadata.X9M, Exadata.X11M)"
+  description = "The shape for the Exadata infrastructure (e.g. Exadata.X11M)"
   default     = "Exadata.X11M"
 }
 
