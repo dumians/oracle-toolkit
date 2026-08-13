@@ -11,7 +11,7 @@ DEFAULT_REGION="europe-west3"
 DEFAULT_REPO="zdm-repo"
 DEFAULT_TAG="23.26.2.0.2"
 TFVARS_FILE="terraform.tfvars"
-BUILDCFG_FILE="cloudbuild_goldengate.yaml"
+BUILDCFG_FILE="$(dirname "$0")/cloudbuild_goldengate.yaml"
 
 # Parse terraform.tfvars if present in current directory
 TF_PROJECT=""

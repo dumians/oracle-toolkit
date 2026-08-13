@@ -3,7 +3,7 @@
 # This script inspects the status of our ZDM deployments and writes a diagnostic log file.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 echo "=========================================================="
 echo "    Google Cloud Infrastructure Manager State Verifier    "
@@ -21,7 +21,7 @@ case $DEP_OPT in
   *) echo "❌ Invalid selection."; exit 1 ;;
 esac
 
-TFVARS_FILE="$ROOT_DIR/environments/$TARGET_ENV/terraform.tfvars"
+TFVARS_FILE="$ROOT_DIR/terraform/environments/$TARGET_ENV/terraform.tfvars"
 if [ -f "$TFVARS_FILE" ]; then
   PROJECT_ID=$(grep -E '^\s*project_id\s*=' "$TFVARS_FILE" | cut -d'"' -f2)
   REGION=$(grep -E '^\s*region\s*=' "$TFVARS_FILE" | cut -d'"' -f2)

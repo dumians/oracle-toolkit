@@ -9,7 +9,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 # Default ZDM_BASE to /u01/zdm/zdmbase if writable, else local $PROJECT_ROOT/zdmbase
 if [ -d "/u01/zdm" ] || mkdir -p "/u01/zdm" 2>/dev/null; then

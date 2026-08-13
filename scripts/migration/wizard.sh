@@ -2,7 +2,7 @@
 # Oracle to GCP Migration Configuration Wizard
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 echo "================================================================="
 echo "        Oracle Database to GCP Migration Wizard & Generator      "
@@ -118,7 +118,7 @@ fi
 prompt_var "SOURCE_IP" "Source Oracle Database IP" "10.10.1.5"
 
 # Prepare tfvars at the repository root directory
-TFVARS_FILE="$ROOT_DIR/terraform.tfvars"
+TFVARS_FILE="$ROOT_DIR/terraform/environments/$TARGET_ENV/terraform.tfvars"
 
 cat <<EOF > "$TFVARS_FILE"
 # Generated automatically by wizard
@@ -268,7 +268,7 @@ fi
 echo "✓ Created $TFVARS_FILE successfully."
 
 # 5. Generate Migration Execution Script
-EXEC_SCRIPT="$ROOT_DIR/environments/$TARGET_ENV/run_migration.sh"
+EXEC_SCRIPT="$ROOT_DIR/terraform/environments/$TARGET_ENV/run_migration.sh"
 
 if [ "$METHOD_OPT" == "physical" ]; then
   RSP_FILE="/u01/zdm/zdmbase/zdm_physical.rsp"
@@ -306,13 +306,13 @@ export SSH_PRIVATE_KEY_INDENTED="\$(echo "$SSH_PRIV_KEY_VAL" | sed 's/^/    /')"
 export SSH_PUBLIC_KEY_INDENTED="\$(echo "$SSH_KEY_VAL" | sed 's/^/    /')"
 
 # Render ZDM workloads manifest
-python3 -c "import os, sys; print(os.path.expandvars(sys.stdin.read()))" < "\$ROOT_DIR/environments/gke/manifests/zdm_workload.yaml.tpl" > "/tmp/zdm_workload.yaml"
+python3 -c "import os, sys; print(os.path.expandvars(sys.stdin.read()))" < "\$ROOT_DIR/terraform/environments/gke/manifests/zdm_workload.yaml.tpl" > "/tmp/zdm_workload.yaml"
 kubectl apply -f "/tmp/zdm_workload.yaml"
 
 if [ "$DEPLOY_GG" == "true" ]; then
   echo "Deploying GoldenGate Hub workload inside GKE..."
   export OGG_IMAGE="$OGG_IMAGE"
-  python3 -c "import os, sys; print(os.path.expandvars(sys.stdin.read()))" < "\$ROOT_DIR/environments/gke/manifests/ogg_workload.yaml.tpl" > "/tmp/ogg_workload.yaml"
+  python3 -c "import os, sys; print(os.path.expandvars(sys.stdin.read()))" < "\$ROOT_DIR/terraform/environments/gke/manifests/ogg_workload.yaml.tpl" > "/tmp/ogg_workload.yaml"
   kubectl apply -f "/tmp/ogg_workload.yaml"
 fi
 

@@ -15,20 +15,20 @@ echo " 2) GKE Private Cluster ZDM Container"
 read -p "Choose option [1-2]: " ENV_OPT
 
 case $ENV_OPT in
-  1) TARGET_DIR="environments/gce"; DEP_NAME="zdm-gce-migration" ;;
-  2) TARGET_DIR="environments/gke"; DEP_NAME="zdm-gke-migration" ;;
+  1) TARGET_DIR="terraform/environments/gce"; DEP_NAME="zdm-gce-migration" ;;
+  2) TARGET_DIR="terraform/environments/gke"; DEP_NAME="zdm-gke-migration" ;;
   *) echo "❌ Invalid selection."; exit 1 ;;
 esac
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 # Verify tfvars exists
-TFVARS_FILE="$ROOT_DIR/terraform.tfvars"
+TFVARS_FILE="$ROOT_DIR/$TARGET_DIR/terraform.tfvars"
 if [ ! -f "$TFVARS_FILE" ]; then
   echo "⚠️ Configuration variables file ($TFVARS_FILE) not found."
   echo "   Automatically launching setup wizard to configure inputs..."
-  "$ROOT_DIR/scripts/wizard.sh"
+  "$ROOT_DIR/scripts/migration/wizard.sh"
   
   # Re-verify after wizard runs
   if [ ! -f "$TFVARS_FILE" ]; then
