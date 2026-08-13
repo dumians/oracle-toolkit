@@ -4,18 +4,27 @@ Enterprise Toolkit for deploying, managing, and migrating Oracle Databases on Go
 
 Supports usage with:
 
-- [Google Compute Engine (GCE)](https://cloud.google.com/products/compute) — Self-managed Oracle on Hyperdisk (Balanced/Extreme/Throughput) and Google Cloud NetApp Volumes (GCNV) iSCSI.
-- [Bare Metal Solution (BMS)](https://cloud.google.com/bare-metal) — High-performance bare metal Oracle RAC and Single Instance.
-- [Oracle Database@Google Cloud (ODB@GCP)](https://cloud.google.com/oracle-database-at-google-cloud):
-  - **Exadata Database Service on Dedicated Infrastructure (ExaCS)** (`Exadata.X9M`, `Exadata.X11M`)
-  - **Exadata Database Service with Exascale** (Smart virtualized intelligent storage pools)
-  - **Autonomous Database Serverless (ADB-S)** (Auto-scaling ECPUs, OLTP/DW, private mTLS endpoint)
-  - **Base Database Service (DBCS)** (Virtual Machine DB System with ECPU compute)
+- **[Google Compute Engine (GCE)](https://cloud.google.com/products/compute)** (IaaS):
+  - Self-managed Oracle Database (11g, 12c, 19c, 21c, 23ai, Free Edition) in Single Instance and Data Guard Standby configurations.
+  - Multi-tier storage backends: Hyperdisk Balanced, Hyperdisk Extreme, Hyperdisk Throughput, Hyperdisk Storage Pools, and Google Cloud NetApp Volumes (GCNV) iSCSI multipath LUNs.
+  - Automated host provisioning, HugePages, kernel tuning, ASM (ASMUDEV / ASMLIB) / XFS, and DBCA database creation via Ansible.
+- **[Bare Metal Solution (BMS)](https://cloud.google.com/bare-metal)** (Bare Metal IaaS):
+  - Certified regional bare metal Linux hardware with sub-millisecond interconnect latency to GCP VPC.
+  - High-performance multi-node Oracle Real Application Clusters (RAC) and physical Data Guard.
+  - Native Cloud Storage (GCS) integration for high-speed backup, staging, and media libraries.
+- **[Oracle Database@Google Cloud (ODB@GCP)](https://cloud.google.com/oracle-database-at-google-cloud)** (Co-located DBaaS):
+  - **Exadata Database Service on Dedicated Infrastructure (ExaCS)**: Dedicated compute servers (min 2) and intelligent storage servers (min 3) running on `Exadata.X9M` and `Exadata.X11M` hardware co-located inside Google Cloud data centers.
+  - **Exadata Database Service with Exascale (ExaDB-D Exascale)**: Next-generation Exadata architecture featuring virtualized intelligent storage pools, decoupled granular online ECPU and storage auto-scaling, low-capacity starter footprints, and instantaneous thin clones.
+  - **Autonomous Database Serverless (ADB-S)**: Fully managed, self-driving Oracle database with automated patching, indexing, and tuning, auto-scaling ECPUs, support for `OLTP` (ATP) and `DW` (ADW) workloads, and secure private endpoints over **TCPS port 1522** (mTLS).
+  - **Base Database Service (DBCS / DB System)**: Virtual Machine DB System with ECPU compute model, customizable block storage, and unified auditing.
+  - **ODB Peered Networking**: Native `google_oracle_database_odb_network` peered directly with Google Cloud VPC, featuring dedicated delegated subnets (`CLIENT_SUBNET` for application & SCAN listener traffic, `BACKUP_SUBNET` for RMAN & Data Guard redo transport).
 - **Oracle Zero Downtime Migration (ZDM) & GoldenGate 23ai**:
-  - Physical Online (RMAN + Data Guard standby, < 5 min cutover)
-  - Logical Online (Data Pump + GoldenGate 23ai Microservices CDC, zero downtime)
-  - Passwordless PKCS12 auto-login wallets (`orapki`/`mkstore`)
-  - Dedicated GCE VM or containerized GKE Pod
+  - **Physical Online Migration**: RMAN block-level backup to GCS + active Data Guard physical standby synchronization (< 5 min cutover window).
+  - **Physical Offline Migration**: Direct RMAN backup restore and transport.
+  - **Logical Online Migration**: Schema instantiation via parallel Data Pump export/import + real-time Change Data Capture (CDC) via Oracle GoldenGate 23ai Microservices Hub (zero downtime).
+  - **Logical Offline Migration**: Parallel Data Pump export to GCS + `DBMS_CLOUD` import.
+  - **Security & Automation**: Passwordless PKCS12 auto-login wallets (`orapki`/`mkstore`), non-root `zdmuser` execution, and Private Google Access.
+  - **Runtime Orchestrators**: Dedicated Compute Engine VM (`zdm_node`) or containerized Kubernetes Pod on GKE (`zdm_container`).
 
 ---
 
