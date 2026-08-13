@@ -15,7 +15,7 @@ Supports usage with:
   - Physical Online (RMAN + Data Guard standby, < 5 min cutover)
   - Logical Online (Data Pump + GoldenGate 23ai Microservices CDC, zero downtime)
   - Passwordless PKCS12 auto-login wallets (`orapki`/`mkstore`)
-  - Dedicated GCE VM, containerized GKE Pod, or On-Premises Hybrid Agent
+  - Dedicated GCE VM or containerized GKE Pod
 
 ---
 

@@ -13,13 +13,11 @@ echo "=========================================================="
 echo "Select the deployment to verify:"
 echo " 1) GCE Standard VM Deployment (zdm-gce-migration)"
 echo " 2) GKE Private Cluster Deployment (zdm-gke-migration)"
-echo " 3) On-Premises Hybrid Deployment (zdm-onprem-migration)"
-read -p "Choose option [1-3]: " DEP_OPT
+read -p "Choose option [1-2]: " DEP_OPT
 
 case $DEP_OPT in
   1) TARGET_ENV="gce"; DEP_NAME="zdm-gce-migration" ;;
   2) TARGET_ENV="gke"; DEP_NAME="zdm-gke-migration" ;;
-  3) TARGET_ENV="onprem"; DEP_NAME="zdm-onprem-migration" ;;
   *) echo "❌ Invalid selection."; exit 1 ;;
 esac
 

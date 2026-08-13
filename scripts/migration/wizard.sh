@@ -28,13 +28,11 @@ echo ""
 echo "Select ZDM Running Environment:"
 echo " 1) GCE Standard VM (Dedicated VM running ZDM in GCP)"
 echo " 2) GKE Private Cluster (ZDM running as a Pod in GKE)"
-echo " 3) On-Premises Linux VM (Dedicated On-Premises Hybrid Hub)"
-read -p "Choose option [1-3]: " ZDM_ENV_OPT
+read -p "Choose option [1-2]: " ZDM_ENV_OPT
 
 case $ZDM_ENV_OPT in
   1) TARGET_ENV="gce"; TARGET_DESC="ZDM GCE VM Environment" ;;
   2) TARGET_ENV="gke"; TARGET_DESC="ZDM GKE Pod Environment" ;;
-  3) TARGET_ENV="onprem"; TARGET_DESC="On-Premises Hybrid VM Environment" ;;
   *) echo "❌ Invalid selection."; exit 1 ;;
 esac
 
@@ -173,23 +171,7 @@ EOF
   fi
 fi
 
-# Append On-Premises specific running environment values
-if [ "$TARGET_ENV" == "onprem" ]; then
-  prompt_var "ONPREM_ZDM_IP" "On-Premises ZDM Service VM Private IP" "10.10.1.100"
-  if [ "$METHOD_OPT" == "logical" ] && [ "$SYNC_MODE" == "online" ]; then
-    prompt_var "DEPLOY_GG" "Deploy GoldenGate 23ai on On-Premises Hub? (true/false)" "true"
-    prompt_var "ONPREM_OGG_IP" "On-Premises GoldenGate Hub Private IP" "10.10.1.101"
-  else
-    DEPLOY_GG="false"
-    ONPREM_OGG_IP="10.10.1.101"
-  fi
 
-  cat <<EOF >> "$TFVARS_FILE"
-onprem_zdm_ip       = "$ONPREM_ZDM_IP"
-onprem_ogg_ip       = "$ONPREM_OGG_IP"
-deploy_goldengate   = $DEPLOY_GG
-EOF
-fi
 
 # Ask target-specific parameters
 case $TARGET_TYPE in

@@ -19,5 +19,3 @@ data_disk_size        = 200
 reco_disk_size        = 100
 target_type           = "gce"
 install_docker        = false
-onprem_zdm_ip         = "10.10.1.100"
-onprem_ogg_ip         = "10.10.1.101"
